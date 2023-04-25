@@ -16,6 +16,7 @@ const LoveButton = () => {
     }, 2600);
   };
 
+
   const generateEmojis = () => {
     const emojis = [
       "💛",
@@ -24,6 +25,7 @@ const LoveButton = () => {
       "🔺",
       "⏹",
       "⭕",
+      "🌺",
       "🌺",
       "🕰️",
       "🔀",
