@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import LoveButton2 from '../components/LoveButton2';
 
-const LoveButton = () => {
+const NewLoveButton = () => {
   return (
     <div>
       <LoveButton2 />
@@ -11,4 +11,4 @@ const LoveButton = () => {
   );
 };
 
-export default LoveButton
+export default NewLoveButton

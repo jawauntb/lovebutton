@@ -37,6 +37,13 @@
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+#love-button::-moz-focus-inner {
+  border: 0;
 }
 
 .savebuttons {
@@ -47,9 +54,9 @@
 
 .label {
   border-radius: 15%;
-  padding: 2rem;
+  padding-bottom: 3rem;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -59,13 +66,13 @@
 }
 
 .button:active {
-  animation: burst 0.5s linear;
+  animation: burst 1s linear;
   animation-fill-mode: forwards;
 }
 
 .heart {
   font-size: 5rem;
-  animation: heartbeat 1s infinite linear;
+  animation: heartbeat .65s infinite linear;
   position: relative;
   top: 10%; /* add this line to center the heart */
   transform: translateY(-50%); /* add this line to center the heart */
@@ -73,7 +80,7 @@
 
 @keyframes heartbeat {
   0% {
-    transform: scale(.89);
+    transform: scale(.8);
   }
   30% {
     transform: scale(.75);
@@ -85,10 +92,10 @@
     transform: scale(.5);
   }
   80% {
-    transform: scale(.68);
+    transform: scale(.56);
   }
   100% {
-    transform: scale(.8);
+    transform: scale(.7);
   }
 }
 
@@ -127,11 +134,26 @@
   0% {
     transform: translateY(0);
   }
+  30% {
+    transform: translateX(-250%);
+  }
+  40% {
+    transform: translateX(50%);
+  }
   50% {
     transform: translateY(-100%);
   }
+  60% {
+    transform: translateY(200%);
+  }
+  70% {
+    transform: translateX(100%);
+  }
+  85% {
+    transform: translateY(-100%);
+  }
   100% {
-    transform: translateY(0);
+    transform: translateX(-70%);
   }
 }
 
@@ -157,13 +179,16 @@
   50% {
     opacity: 0.5;
   }
+  70% {
+    opacity: 0.1;
+  }
   100% {
     opacity: 1;
   }
 }
 
 .heart.twinkle {
-  animation: twinkle 2s linear;
+  animation: twinkle 3s linear;
 }
 
 @media (max-width: 768px) {
@@ -201,7 +226,7 @@
   }
   100% {
     opacity: 0;
-    transform: translate3d(-50%, -50%, 0) scale(0) rotate(360deg);
+    transform: translate3d(-50%, -50%, 0) scale(0) rotate(760deg);
   }
 }
 
@@ -221,10 +246,21 @@
   animation: dancing 3s ease-in-out infinite;
 }
 
-.fire {
-  animation: twinkling 2s ease-in-out infinite;
+.heart-eyes .emoji{
+  position: absolute;
+  opacity: 0;
+  animation: dancing 6s ease-in-out infinite;
 }
 
+.fire {
+  animation: twinkling 3s ease-in-out infinite;
+}
+
+.fire .emoji {
+  position: absolute;
+  opacity: 0;
+  animation: twinkling 3s ease-in-out infinite;
+}
 .emoji-rain {
   position: fixed;
   top: 0;
@@ -237,7 +273,7 @@
 .emoji-rain .emoji {
   position: absolute;
   opacity: 0;
-  animation: falling 4s linear infinite;
+  animation: falling 5s linear infinite;
 }
 
 @keyframes falling {
@@ -258,4 +294,18 @@
     opacity: 0;
     transform: translate3d(0, 150%, 0) rotate(720deg);
   }
+}
+
+.shareButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.shareButton:focus {
+  outline: none;
 }
