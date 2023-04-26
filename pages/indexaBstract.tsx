@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styles from "../styles/Press.module.css";
-import emojigram from "./emojigram"
 
-const LoveButton = () => {
+const LoveButton = ({ emojiHistogram }) => {
   const [showEmojis, setShowEmojis] = useState(false);
   const [pressed, setPressed] = useState(false);
-  const [firstHeart, setFirstHeart] = useState("💖")
+  const [firstHeart, setFirstHeart] = useState("💖");
 
   const handleClick = () => {
     setShowEmojis(true);
@@ -13,9 +12,24 @@ const LoveButton = () => {
     setTimeout(() => {
       setShowEmojis(false);
       setPressed(false);
-      setFirstHeart(Math.random() > .25 ? getRandomHeart() : "💘")
-    }, 1700);
+      setFirstHeart(Math.random() > 0.25 ? getRandomHeart() : "💘");
+    }, 2600);
   };
+
+  const generateEmojis = () => {
+    const emojis = Object.entries(emojiHistogram).flatMap(([emoji, count]) =>
+      Array.from({ length: count }, () => emoji)
+    );
+
+    const result = [];
+    for (let i = 0; i < 50; i++) {
+      const randomIndex = Math.floor(Math.random() * emojis.length);
+      result.push(emojis[randomIndex]);
+    }
+    return result;
+  };
+
+  const emojis = generateEmojis();
 
   function getRandomHeart(probability = 0.5) {
     const hearts = [
@@ -52,20 +66,6 @@ const LoveButton = () => {
       ? hearts[Math.floor(Math.random() * hearts.length)]
       : "💖";
   }
-
-  const generateEmojis = () => {
-    const result = [];
-    Object.entries(emojigram).map(([emoji, number]) => {
-      for (let i = 0; i < number; i++) {
-        result.push(emoji);
-      }
-    });
-    return result;
-  };
-
-
-  const emojis = generateEmojis();
-  const first = Math.random()
 
   return (
     <div className={styles.container}>

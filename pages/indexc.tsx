@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "../styles/Press.module.css";
-import emojigram from "./emojigram"
+import emojigram from "./emojigram";
+import html2canvas from "html2canvas";
+import RecordRTC from "recordrtc";
+import Image from "next/image";
+import { URL } from 'url';
+
 
 const LoveButton = () => {
   const [showEmojis, setShowEmojis] = useState(false);
   const [pressed, setPressed] = useState(false);
-  const [firstHeart, setFirstHeart] = useState("💖")
+  const [firstHeart, setFirstHeart] = useState("💖");
+  const [media, setMedia] = useState(null);
+  const containerRef = useRef(null);
 
   const handleClick = () => {
     setShowEmojis(true);
@@ -54,7 +61,7 @@ const LoveButton = () => {
   }
 
   const generateEmojis = () => {
-    const result = [];
+    const result:any[] = [];
     Object.entries(emojigram).map(([emoji, number]) => {
       for (let i = 0; i < number; i++) {
         result.push(emoji);
@@ -63,12 +70,29 @@ const LoveButton = () => {
     return result;
   };
 
+  const captureMedia = async (type:any) => {
+    if (type === "image") {
+      const canvas = await html2canvas(containerRef.current);
+      setMedia(canvas.toDataURL("image/png"));
+    } else if (type === "video") {
+      const canvasStream = containerRef.current.captureStream();
+      const recorder = new RecordRTC(canvasStream, { type: "video" });
+      recorder.startRecording();
+
+      setTimeout(async () => {
+        recorder.stopRecording(() => {
+          const blob = recorder.getBlob();
+          setMedia(URL.createObjectURL(blob));
+        });
+      }, 5000); // Adjust recording duration as needed
+    }
+  };
 
   const emojis = generateEmojis();
-  const first = Math.random()
+  const first = Math.random();
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <button
         className={`${styles.button} ${pressed ? styles.pressed : ""}`}
         onClick={handleClick}
@@ -95,6 +119,20 @@ const LoveButton = () => {
           ))}
         </div>
       )}
+      <div className={styles.saveContainer}>
+        <button onClick={() => captureMedia("image")}>Save as Image</button>
+        <button onClick={() => captureMedia("video")}>Save as Video/GIF</button>
+        {media && (
+          <div>
+            <h3>Preview:</h3>
+            {media.includes("image") ? (
+              <Image src={media} alt="Captured Media" layout="responsive" width={100} height={100} />
+            ) : (
+              <video src={media} controls></video>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
