@@ -1,7 +1,7 @@
 // index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoveButton from '../components/LoveButton';
+import LoveJoystick from '../components/LoveJoystick';
 import Head from 'next/head';
 import styles from '../styles/Press.module.css';
 import handleShareClick from '../utils/handleShareClick';
@@ -20,7 +20,7 @@ const Index = () => {
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <LoveButton />
+      <LoveJoystick />
     </div>
   );
 };

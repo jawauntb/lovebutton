@@ -10,7 +10,7 @@ const LoveButtonComponent = ({ pressed, handleClick, firstHeart }) => (
     >
       <span className={styles.heart}>{firstHeart}</span>
     </button>
-    <span className={styles.label}>Press for Love</span>
+    <span className={styles.label}>Push for Love</span>
   </>
 );
 
