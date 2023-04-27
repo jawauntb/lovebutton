@@ -1,7 +1,7 @@
 // index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoveJoystick from '../components/LoveJoystick';
+import LoveJoystick from '../components/LoveJoystickNew';
 import Head from 'next/head';
 import styles from '../styles/Press.module.css';
 import handleShareClick from '../utils/handleShareClick';

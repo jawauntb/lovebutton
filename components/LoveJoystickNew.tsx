@@ -26,8 +26,8 @@ const LoveJoystick = () => {
   const handleDragEnd = (event) => {
     event.preventDefault();
     setPressed(false);
-    const dragDirection = getDragDirection(event);
-    setFlingDirection(dragDirection);
+    const direction = getDragDirection(event.clientX, event.clientY);
+    setFlingDirection(direction); // Change this line
     const { x, y } = heartPosition;
     const containerRect = containerRef.current.getBoundingClientRect();
     const flingDistance = Math.max(
@@ -35,12 +35,11 @@ const LoveJoystick = () => {
       containerRect.height
     );
     const flingX =
-      x + flingDistance * Math.sin((dragDirection * Math.PI) / 180);
+      x + flingDistance * Math.sin((direction * Math.PI) / 180); // Change this line
     const flingY =
-      y - flingDistance * Math.cos((dragDirection * Math.PI) / 180);
+      y - flingDistance * Math.cos((direction * Math.PI) / 180); // Change this line
     setHeartPosition({ x: flingX, y: flingY });
     setShowEmojis(true);
-    
   };
 
   const handleMouseMove = (event) => {
@@ -64,7 +63,9 @@ const LoveJoystick = () => {
       setSelectedLoveType(getLoveTypeByDirection(angle));
     }
   };
+  
   useEffect(() => {
+    const containerRect = containerRef.current.getBoundingClientRect();
     if (flingDirection) {
       const emojiContainer = document.querySelector(`.${styles.emojiContainer}`);
       if (emojiContainer) {
@@ -106,8 +107,7 @@ const LoveJoystick = () => {
     }
   }, [flingDirection]);
   
-  const getDragDirection = (event) => {
-    const { clientX, clientY } = event;
+  const getDragDirection = (clientX, clientY) => {
     const containerRect = containerRef.current.getBoundingClientRect();
     const containerCenterX = containerRect.width / 2;
     const containerCenterY = containerRect.height / 2;
@@ -129,7 +129,36 @@ const LoveJoystick = () => {
     const emojis = createEmojisByDirection(selectedLoveType);
     return emojis;
   };
+  
+  const renderEmojis = () => {
+    const emojiElements = [];
+    const radius = 100; // Adjust this value to position the emojis further or closer to the heart
 
+    for (const direction in loveTypeMap) {
+      const loveType = loveTypeMap[direction];
+      const angle = getAngleByDirection(direction);
+      const emoji = Object.keys(emojigramByLoveType[loveType])[0];
+      const x = heartPosition.x + radius * Math.cos(angle * Math.PI / 180);
+      const y = heartPosition.y - radius * Math.sin(angle * Math.PI / 180);
+
+      emojiElements.push(
+        <div
+          key={direction}
+          style={{
+            position: 'absolute',
+            left: x,
+            top: y,
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          {emoji}
+        </div>
+      );
+    }
+
+    return emojiElements;
+  };
+  
   const createEmojisByDirection = (loveType) => {
     const emojis = emojigramByLoveType[loveType] || [];
     return Object.keys(emojis).flatMap((emoji) => Array(emojis[emoji]).fill(emoji));
@@ -145,7 +174,17 @@ const LoveJoystick = () => {
     const length = Math.floor(Math.random() * emojigram.length);
     return emojigram.slice(0, length);
   };
-  
+
+  const handleDrag = (event) => {
+    if (pressed) {
+      setHeartPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    }
+  };
+
+
   return (
     <div
       className={styles.container}
@@ -169,16 +208,23 @@ const LoveJoystick = () => {
         <EmojiContainer
           emojis={generateJoystickEmojis()}
           selectedLoveType={selectedLoveType}
-          handleFlingEnd={handleFlingEnd}
+          flingDirection={flingDirection}
         />
       )}
       <div className={styles.representativeEmojis}>
-        // Add the representative emojis for each direction here
+        <span className={styles.joyEmojiN}>{emojigramByLoveType['Agape'][0]}</span>
+        <span className={styles.joyEmojiS}>{emojigramByLoveType['Eros'][0]}</span>
+        <span className={styles.joyEmojiE}>{emojigramByLoveType['Philia'][0]}</span>
+        <span className={styles.joyEmojiW}>{emojigramByLoveType['Pragma'][0]}</span>
+        <span className={styles.joyEmojiNW}>{emojigramByLoveType['Ludus'][0]}</span>
+        <span className={styles.joyEmojiNE}>{emojigramByLoveType['Storge'][0]}</span>
+        <span className={styles.joyEmojiSW}>{emojigramByLoveType['Philautia'][0]}</span>
+        <span className={styles.joyEmojiSE}>{emojigramByLoveType['Mania'][0]}</span>
       </div>
     </div>
   );
 };
 
-  export default LoveJoystick;
+export default LoveJoystick;
 
   
