@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '../styles/Joy.module.css';
-import hearts from '../utils/hearts';
-import LoveJoyComponent from './LoveJoyComponent';
-import EmojiContainer from './EmojiContainer';
+import getRandomHeart from '../utils/getRandomHeart';
 import loveTypeMap from '../utils/loveTypeMap';
 import emojigramByLoveType from '../utils/emojigramByLoveType';
-import getRandomHeart from '../utils/getRandomHeart';
 
 const LoveJoystick = () => {
   const [showEmojis, setShowEmojis] = useState(false);
@@ -27,7 +24,7 @@ const LoveJoystick = () => {
     event.preventDefault();
     setPressed(false);
     const direction = getDragDirection(event.clientX, event.clientY);
-    setFlingDirection(direction); // Change this line
+    setFlingDirection(direction);
     const { x, y } = heartPosition;
     const containerRect = containerRef.current.getBoundingClientRect();
     const flingDistance = Math.max(
@@ -35,15 +32,14 @@ const LoveJoystick = () => {
       containerRect.height
     );
     const flingX =
-      x + flingDistance * Math.sin((direction * Math.PI) / 180); // Change this line
+      x + flingDistance * Math.sin((direction * Math.PI) / 180);
     const flingY =
-      y - flingDistance * Math.cos((direction * Math.PI) / 180); // Change this line
+      y - flingDistance * Math.cos((direction * Math.PI) / 180);
     setHeartPosition({ x: flingX, y: flingY });
     setShowEmojis(true);
   };
 
   const handleMouseMove = (event) => {
-    // Do not call event.preventDefault() here
     if (pressed) {
       const containerRect = containerRef.current.getBoundingClientRect();
       const containerCenterX = containerRect.width / 2;
@@ -54,7 +50,7 @@ const LoveJoystick = () => {
       const dy = mouseY - containerCenterY;
       const angle = Math.atan2(dy, dx);
       const distance = Math.sqrt(dx * dx + dy * dy);
-      const maxDistance = containerCenterX - 60; // 60 is half the width of the heart
+      const maxDistance = containerCenterX - 60;
       const ratio = Math.min(distance / maxDistance, 1);
       const heartX = containerCenterX + dx * ratio;
       const heartY = containerCenterY + dy * ratio;
@@ -63,7 +59,6 @@ const LoveJoystick = () => {
       setSelectedLoveType(getLoveTypeByDirection(angle));
     }
   };
-  
   useEffect(() => {
     const containerRect = containerRef.current.getBoundingClientRect();
     if (flingDirection) {
@@ -106,7 +101,7 @@ const LoveJoystick = () => {
       setHeartPosition({ x: containerRect.width / 2, y: containerRect.height / 2 });
     }
   }, [flingDirection]);
-  
+
   const getDragDirection = (clientX, clientY) => {
     const containerRect = containerRef.current.getBoundingClientRect();
     const containerCenterX = containerRect.width / 2;
@@ -120,16 +115,17 @@ const LoveJoystick = () => {
     }
     return ['E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'][direction];
   };
-  
+
   const getLoveTypeByDirection = (direction) => {
-    return loveTypeMap[direction] || 'Agape'; // Default to Agape if the direction is not found
+    return loveTypeMap[direction] || 'Agape';
   };
-  
+
   const generateJoystickEmojis = () => {
     const emojis = createEmojisByDirection(selectedLoveType);
     return emojis;
   };
-  
+
+  // ... Rest of the code
   const renderEmojis = () => {
     const emojiElements = [];
     const radius = 100; // Adjust this value to position the emojis further or closer to the heart
@@ -184,7 +180,6 @@ const LoveJoystick = () => {
     }
   };
 
-
   return (
     <div
       className={styles.container}
@@ -226,5 +221,3 @@ const LoveJoystick = () => {
 };
 
 export default LoveJoystick;
-
-  
