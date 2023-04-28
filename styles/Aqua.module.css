@@ -1,0 +1,225 @@
+.gradientBackground {
+  background-image: linear-gradient(
+    to bottom,
+    #000b1a,
+    #001f3f,
+    #0074d9,
+    #39cccc,
+    #2ecc40,
+    #00a3cc,  /* New ocean color */
+    #ff7f50,  /* Coral color */
+    #ffe5b4,  /* Seashell color */
+    #ffffff
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  /* background: linear-gradient(-45deg, #ffffff, #ff83ad, #ff69b4, #9b4f96, #1a1c2c, #ff69b4, #ff83ad, #ffffff,  yellow, white, red); */
+  background: linear-gradient(
+    to right,
+    #001f3f,
+    #295a9e,
+    #0074d9,
+    #39cccc,
+    #2ecc40,
+    #00a3cc,  /* New ocean color */
+    #ff7f50,  /* Coral color */
+    #ffe5b4,  /* Seashell color */
+    #ffffff
+  );
+
+
+  background-size: 400% 400%;
+  animation: gradient 10s ease-in-out infinite;
+  overflow: hidden; /* add this line to prevent whitespace on mobile */
+  overflow: hidden;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes dancing {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translate3d(50%, -25%, 0) scale(1) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(500%, 50%, 0) scale(1) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translate3d(-300%, 500%, 0) scale(1) rotate(270deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-100%, -200%, 0) scale(0) rotate(760deg);
+  }
+}
+
+@keyframes twinkling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes falling {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(50%, 50%, 0) rotate(180deg);
+  }
+  75% {
+    transform: translate3d(-50%, 50%, 0) rotate(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 150%, 0) rotate(720deg);
+  }
+}
+
+.emoji {
+  font-size: 48px;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* .waterEmoji {
+  font-size: 48px;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: pointer;
+} */
+
+.waterEmoji {
+  font-size: 2em;
+  position: absolute;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: pointer;
+  animation:floatAnimation 2s ease-in-out infinite, twinkling 3s ease-in-out infinite, burst 2s ease-in infinite, dancing 10s ease-in-out infinite, falling 2s ease-in-out;
+}
+
+.emojiContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.centerWave {
+  font-size: 96px;
+  position: absolute;
+  animation: floatAnimation 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.centerWave:hover {
+  transform: scale(1.05);
+}
+
+.centerWave:active {
+  animation: burst 1s linear;
+  animation-fill-mode: forwards;
+}
+
+.shareButton {
+  position: absolute;
+  top: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 2px; /* Add a margin to separate buttons */
+  z-index: 2;
+}
+
+.shareButton:focus {
+  outline: none;
+}
+
+.heartButton {
+  right: 40px; /* Adjust the position */
+}
+.rocketButton {
+  right: 1px; /* Adjust the position */
+}
+
+.label {
+  border-radius: 15%;
+  padding-top: 10rem;
+  color: white;
+  top: 0%;
+  text-align: center;
+  font-size: 1.5rem;
+}

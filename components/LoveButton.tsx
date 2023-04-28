@@ -7,7 +7,6 @@ import EmojiContainer from './EmojiContainer';
 import SpecialMessage from './SpecialMessage';
 import messages from '../utils/messages';
 import getSpecialMessage from '../utils/getSpecialMessage';
-import getRandomHeart from '../utils/getRandomHeart';
 
 const LoveButton = () => {
   const [showEmojis, setShowEmojis] = useState(false);
@@ -19,15 +18,24 @@ const LoveButton = () => {
     return Math.floor(Math.random() * max);
   };
 
+  function getRandomHeart(probability = 0.5) {
+    const random = Math.random();
+    const otherRandom = Math.random();
+    return random < probability
+      ? hearts[Math.floor(otherRandom * hearts.length)]
+      : "💖";
+  }
+
   const handleHeartClick = () => {
     setShowEmojis(true);
     setPressed(true);
     setClickCount(clickCount + 1);
     setTimeout(() => {
+      setFirstHeart(getRandomHeart());
       setShowEmojis(false);
       setPressed(false);
-      setFirstHeart(Math.random() > 0.25 ? getRandomHeart(hearts) : "💘");
-    }, 6000);
+       // Update this line
+    }, 4800);
   };
   
   const createEmojiResult = (emojigram, chosen) => {

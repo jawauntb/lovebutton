@@ -10,7 +10,7 @@
 
 
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 5s ease infinite;
   overflow: hidden; /* add this line to prevent whitespace on mobile */
   overflow: hidden;
 }
@@ -62,7 +62,7 @@
 }
 
 .button:hover {
-  transform: scale(1.05);
+  transform: scale(1.25);
 }
 
 .button:active {
@@ -71,7 +71,7 @@
 }
 
 .heart {
-  font-size: 5rem;
+  font-size: 7rem;
   animation: heartbeat .65s infinite linear;
   position: relative;
   top: 10%; /* add this line to center the heart */
@@ -126,7 +126,7 @@
 
 .emoji {
   position: relative;
-  animation: emoji-float 4s linear infinite;
+  animation: emoji-float 4s linear infinite, twinkle 2s ease-in-out infinite;
 }
 
 
@@ -299,13 +299,22 @@
 .shareButton {
   position: absolute;
   top: 10px;
-  right: 10px;
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  margin-right: 5px; /* Add a margin to separate buttons */
 }
 
 .shareButton:focus {
   outline: none;
 }
+
+.waveButton {
+  right: 40px; /* Adjust the position */
+}
+
+.rocketButton {
+  right: 1px; /* Adjust the position */
+}
+

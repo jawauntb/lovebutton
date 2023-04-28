@@ -1,17 +1,34 @@
 // index.tsx
 import React from 'react';
-import ReactDOM from 'react-dom';
 import LoveButton from '../components/LoveButton';
 import Head from 'next/head';
 import styles from '../styles/Press.module.css';
 import handleShareClick from '../utils/handleShareClick';
+import { useRouter } from 'next/router';
 
 const Index = () => {
+  const router = useRouter();
+
+  const goToWave = () => {
+    router.push('/wave');
+  };
+
+  const goToIndex = () => {
+    router.push('/')
+  }
+
   return (
     <div className={styles.container}>
       {/* Add the share button emoji here */}
       <button
-        className={styles.shareButton}
+        className={`${styles.shareButton} ${styles.waveButton}`}
+        onClick={goToWave}
+        title="Go to Wave"
+      >
+        🌊
+      </button>
+      <button
+        className={`${styles.shareButton} ${styles.rocketButton}`}
         onClick={handleShareClick}
         title="Share"
       >
@@ -25,4 +42,4 @@ const Index = () => {
   );
 };
 
-export default Index
+export default Index;
