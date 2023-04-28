@@ -130,7 +130,7 @@
     transform: scale(1);
   }
   to {
-    transform: scale(4);
+    transform: scale(8);
   }
 }
 
