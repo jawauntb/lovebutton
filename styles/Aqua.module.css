@@ -1,13 +1,15 @@
 .gradientBackground {
   background-image: linear-gradient(
     to bottom,
+    
     #000b1a,
     #001f3f,
+    #ff7f50, 
     #0074d9,
     #39cccc,
     #2ecc40,
     #00a3cc,  /* New ocean color */
-    #ff7f50,  /* Coral color */
+    /* Coral color */
     #ffe5b4,  /* Seashell color */
     #ffffff
   );
