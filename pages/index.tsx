@@ -19,9 +19,21 @@ const Index = () => {
   const goToGrow = () => {
     router.push('/grow')
   }
+
+  const goToDope = () => {
+    router.push('/dope');
+  };
+
   return (
     <div className={styles.container}>
       {/* Add the share button emoji here */}
+      <button
+        className={`${styles.shareButton} ${styles.dopeButton}`}
+        onClick={goToDope}
+        title="Go to Dope"
+      >
+        🍬
+      </button>
       <button
         className={`${styles.shareButton} ${styles.growButton}`}
         onClick={goToGrow}

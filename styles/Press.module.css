@@ -318,6 +318,14 @@
   right: 40px; /* Adjust the position */
 }
 
+.heartButton{
+  right: 120px;
+}
+
+.dopeButton{
+  right: 120px;
+}
+
 .rocketButton {
   right: 1px; /* Adjust the position */
 }
