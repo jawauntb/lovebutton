@@ -76,3 +76,5 @@ support = true
 [deployment]
 build = ["sh", "-c", "npm run build"]
 run = ["sh", "-c", "npm run start"]
+ignorePorts = false
+deploymentTarget = "gce"
