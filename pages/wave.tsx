@@ -12,7 +12,9 @@ const Wave = () => {
   const goToIndex = () => {
     router.push('/');
   };
-
+  const goToGrow = () => {
+    router.push('/grow')
+  }
   const goToWave = () => {
     router.push('/wave');
   };
@@ -20,6 +22,13 @@ const Wave = () => {
   return (
     <div className={styles.container}>
       {/* Add the share button emoji here */}
+      <button
+        className={`${styles.shareButton} ${styles.growButton}`}
+        onClick={goToGrow}
+        title="Go to Grow"
+      >
+        🪷
+      </button>
       <button
         className={`${styles.shareButton} ${styles.heartButton}`}
         onClick={goToIndex}

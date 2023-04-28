@@ -309,7 +309,9 @@
 .shareButton:focus {
   outline: none;
 }
-
+.growButton {
+  right: 80px; /* Adjust the position */
+}
 .waveButton {
   right: 40px; /* Adjust the position */
 }

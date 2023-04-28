@@ -1,12 +1,12 @@
-// index.tsx
+// grow.tsx
 import React from 'react';
-import LoveButton from '../components/LoveButton';
+import Flower from '../components/Flower';
 import Head from 'next/head';
-import styles from '../styles/Press.module.css';
-import handleShareClick from '../utils/handleShareClick';
+import styles from '../styles/Growth.module.css';
+import handleGrowShareClick from '../utils/handleGrowShareClick';
 import { useRouter } from 'next/router';
 
-const Index = () => {
+const Grow = () => {
   const router = useRouter();
 
   const goToWave = () => {
@@ -16,19 +16,14 @@ const Index = () => {
   const goToIndex = () => {
     router.push('/')
   }
+
   const goToGrow = () => {
     router.push('/grow')
   }
+
   return (
     <div className={styles.container}>
       {/* Add the share button emoji here */}
-      <button
-        className={`${styles.shareButton} ${styles.growButton}`}
-        onClick={goToGrow}
-        title="Go to Grow"
-      >
-        🪷
-      </button>
       <button
         className={`${styles.shareButton} ${styles.waveButton}`}
         onClick={goToWave}
@@ -37,18 +32,25 @@ const Index = () => {
         🌊
       </button>
       <button
+        className={`${styles.shareButton} ${styles.heartButton}`}
+        onClick={goToIndex}
+        title="Go to Index"
+      >
+        💖
+      </button>
+      <button
         className={`${styles.shareButton} ${styles.rocketButton}`}
-        onClick={handleShareClick}
+        onClick={handleGrowShareClick}
         title="Share"
       >
         🚀
       </button>
       <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/flowicon.ico" />
       </Head>
-      <LoveButton />
+      <Flower />
     </div>
   );
 };
 
-export default Index;
+export default Grow;

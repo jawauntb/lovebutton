@@ -145,6 +145,7 @@
 
 .emoji {
   font-size: 48px;
+  outline: none;
   touch-action: manipulation;
   user-select: none;
   cursor: pointer;
@@ -213,6 +214,10 @@
 }
 .rocketButton {
   right: 1px; /* Adjust the position */
+}
+
+.growButton {
+  right: 80px;
 }
 
 .label {

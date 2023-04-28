@@ -1,8 +1,8 @@
-const handleShareClick = async () => {
+const handleGrowShareClick = async () => {
   if (navigator.share) {
     try {
       await navigator.share({
-        title: "😘 Push The Love Button 💖🫠",
+        title: "🌴🌼 Will You Grow with Me? 🪴🌺",
         url: window.location.href,
       });
     } catch (err) {
@@ -18,4 +18,4 @@ const handleShareClick = async () => {
   }
 };
 
-export default handleShareClick;
+export default handleGrowShareClick;
