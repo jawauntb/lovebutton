@@ -8,7 +8,7 @@
   /* background: linear-gradient(-45deg, #ffffff, #ff83ad, #ff69b4, #9b4f96, #1a1c2c, #ff69b4, #ff83ad, #ffffff,  yellow, white, red); */
   background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff, #c1ffff, #c1ffff, #b6fbff, #83a4d4, #576574, #2c3e50);
 
-
+  margin: 0!important;
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   overflow: hidden; /* add this line to prevent whitespace on mobile */
