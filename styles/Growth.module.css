@@ -2,6 +2,7 @@
 
 .container {
   display: flex;
+  box-sizing: border-box;
   font-family:'Inter', sans-serif;
   justify-content: center;
   align-items: center;
