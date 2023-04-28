@@ -5,7 +5,7 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
-  box-sizing: border-box;
+  box-sizing: content-box;
   /* background: linear-gradient(-45deg, #ffffff, #ff83ad, #ff69b4, #9b4f96, #1a1c2c, #ff69b4, #ff83ad, #ffffff,  yellow, white, red); */
   background: linear-gradient(
     to right,
@@ -20,7 +20,6 @@
     #ffffff
   );
   margin: 0!important;
-  font-family:'Inter', sans-serif;
   background-size: 400% 400%;
   animation: gradient 10s ease-in-out infinite;
   overflow: hidden; /* add this line to prevent whitespace on mobile */

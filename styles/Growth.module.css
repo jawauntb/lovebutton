@@ -2,8 +2,7 @@
 
 .container {
   display: flex;
-  box-sizing: border-box;
-  font-family:'Inter', sans-serif;
+  box-sizing: content-box;
   justify-content: center;
   align-items: center;
   height: 100vh; /* add height property */
