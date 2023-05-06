@@ -1,27 +1,28 @@
-// wave.tsx
+// index.tsx
 import React from 'react';
-import Aqua from '../components/Aqua';
+import Avignon from '../components/Avignon';
 import Head from 'next/head';
-import styles from '../styles/Aqua.module.css';
-import handleWaveShareClick from '../utils/handleWaveShareClick';
+import styles from "../styles/Demoiselles.module.css";
+import handleOgreShareClick from '../utils/handleOgreShareClick';
 import { useRouter } from 'next/router';
 
-const Wave = () => {
+const Index = () => {
   const router = useRouter();
 
-  const goToIndex = () => {
-    router.push('/');
-  };
-  const goToGrow = () => {
-    router.push('/grow')
-  }
   const goToWave = () => {
     router.push('/wave');
   };
 
-  const goToDope = () => {
-    router.push('/dope');
-  };
+  const goToIndex = () => {
+    router.push('/')
+  }
+  const goToGrow = () => {
+    router.push('/grow')
+  }
+
+  // const goToDope = () => {
+  //   router.push('/dope');
+  // };
 
   const goToDems = () => {
     router.push('/demoiselles');
@@ -31,18 +32,18 @@ const Wave = () => {
     <div className={styles.container}>
       {/* Add the share button emoji here */}
       <button
-        className={`${styles.shareButton} ${styles.dopeButton}`}
-        onClick={goToDems}
-        title="Go to Demoiselles"
-      >
-        👹
-      </button>
-      <button
         className={`${styles.shareButton} ${styles.growButton}`}
         onClick={goToGrow}
         title="Go to Grow"
       >
         🪷
+      </button>
+      <button
+        className={`${styles.shareButton} ${styles.waveButton}`}
+        onClick={goToWave}
+        title="Go to Wave"
+      >
+        🌊
       </button>
       <button
         className={`${styles.shareButton} ${styles.heartButton}`}
@@ -53,18 +54,17 @@ const Wave = () => {
       </button>
       <button
         className={`${styles.shareButton} ${styles.rocketButton}`}
-        onClick={handleWaveShareClick}
+        onClick={handleOgreShareClick}
         title="Share"
       >
         🚀
       </button>
       <Head>
-        <link rel="shortcut icon" href="/wavicon.ico" />
+        <link rel="shortcut icon" href="/ogricon.ico" />
       </Head>
-      <Aqua />
-      <div className={styles.label}>Ride the Wave</div>
+      <Avignon />
     </div>
   );
 };
 
-export default Wave;
+export default Index;

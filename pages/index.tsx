@@ -20,8 +20,12 @@ const Index = () => {
     router.push('/grow')
   }
 
-  const goToDope = () => {
-    router.push('/dope');
+  // const goToDope = () => {
+  //   router.push('/dope');
+  // };
+
+  const goToDems = () => {
+    router.push('/demoiselles');
   };
 
   return (
@@ -29,10 +33,10 @@ const Index = () => {
       {/* Add the share button emoji here */}
       <button
         className={`${styles.shareButton} ${styles.dopeButton}`}
-        onClick={goToDope}
-        title="Go to Dope"
+        onClick={goToDems}
+        title="Go to Demoiselles"
       >
-        🍬
+        👹
       </button>
       <button
         className={`${styles.shareButton} ${styles.growButton}`}
