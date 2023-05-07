@@ -39,7 +39,7 @@ const Avignon = () => {
     const interval = setInterval(() => {
       index = (index + 1) % buttonEmojiList.length;
       setButtonEmoji(buttonEmojiList[index]);
-    }, 500);
+    }, 1500);
 
     return () => {
       clearInterval(interval);

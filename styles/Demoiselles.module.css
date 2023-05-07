@@ -35,7 +35,7 @@
   box-sizing: content-box;
   margin: 0!important;
   background-size: 400% 400%;
-  animation: gradient 30s ease-in-out infinite;
+  animation: gradient 20s ease-in-out infinite;
   overflow: hidden; /* add this line to prevent whitespace on mobile */  
   position: relative; 
 }
@@ -267,7 +267,7 @@
 .releasedEmoji {
   font-size: 1.5rem;
   position: absolute;
-  animation: twinkle 5s ease-in-out infinite, skewY 4s linear infinite, skewX 3s linear infinite, grow 4s ease-in infinite;
+  animation: twinkle 5s ease-in-out infinite, skewY 4s linear infinite, skewX 5s linear infinite, grow 6s ease-in infinite;
 }
 
 @keyframes grow {
