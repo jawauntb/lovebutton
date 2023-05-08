@@ -144,8 +144,6 @@ const Flower = () => {
           {randomEmoji}
         </div>
       ))}
-      <span className={styles.label}>Grow with Me</span>
-
     </div>
   );
 };

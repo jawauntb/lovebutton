@@ -16,7 +16,6 @@ const Dope = () => {
         <link rel="shortcut icon" href="/candicon.ico" />
       </Head>
       <Dopamine />
-      <div className={styles.label}>Try Some Dope</div>
     </div>
   );
 };

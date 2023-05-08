@@ -62,7 +62,6 @@ const Wave = () => {
         <link rel="shortcut icon" href="/wavicon.ico" />
       </Head>
       <Aqua />
-      <div className={styles.label}>Ride the Wave</div>
     </div>
   );
 };
