@@ -28,15 +28,19 @@ const Index = () => {
     router.push('/demoiselles');
   };
 
+  const goToRings = () => {
+    router.push('/rings');
+  };
+
   return (
     <div className={styles.container}>
       {/* Add the share button emoji here */}
       <button
-        className={`${styles.shareButton} ${styles.dopeButton}`}
-        onClick={goToDems}
-        title="Go to Demoiselles"
+        className={`${styles.shareButton} ${styles.ringButton}`}
+        onClick={goToRings}
+        title="Go to Resonance"
       >
-        👹
+        ⭕️
       </button>
       <button
         className={`${styles.shareButton} ${styles.growButton}`}
