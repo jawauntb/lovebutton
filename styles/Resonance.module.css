@@ -9,7 +9,7 @@
   height: 100vh;
   width: 100%;
   /* background: linear-gradient(-45deg, #ffffff, #ff83ad, #ff69b4, #9b4f96, #1a1c2c, #ff69b4, #ff83ad, #ffffff,  yellow, white, red); */
-  background: linear-gradient(to right, #b6fbff, #83a4d4, #576574, #2c3e50);
+  background: linear-gradient(to right, #fff8a8, #fbffe5, #b6fbff, #247bff,#2c3e50);
   box-sizing: content-box;
   margin: 0!important;
   background-size: 400% 400%;
