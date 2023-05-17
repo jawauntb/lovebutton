@@ -57,16 +57,16 @@
 }
 
 .form {
-  bottom: 0;
   width: 100%;
   background: rgba(173, 216, 230, 0.5); /* Light blue with 50% opacity */
   backdrop-filter: blur(3px); /* This will give a frosty look */
   padding: 1rem;
   border-radius: 10px;
   position: absolute;
-  bottom: 0;
+  bottom: 0 !important;
   left: 0;
   right: 0;
+  margin: 0;
 }
 
 .labeler{
