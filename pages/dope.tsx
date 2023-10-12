@@ -1,22 +1,15 @@
 // Dope.tsx
 import React from 'react';
 import Dopamine from '../components/Dopamine';
-import Head from 'next/head';
-import styles from '../styles/Dope.module.css';
-
+import Layout from '../new_components/Layout';  // Import the Layout component
 
 const Dope = () => {
-
-
   return (
-    <div className={styles.container}>
-      {/* Add a container with a higher z-index for the buttons */}
-
-      <Head>
-        <link rel="shortcut icon" href="/candicon.ico" />
-      </Head>
-      <Dopamine />
-    </div>
+    <Layout
+      buttonKeys={[]}  // Empty array as there are no buttons on the Dope page
+      mainContent={<Dopamine />}
+      faviconUrl="/candicon.ico"
+    />
   );
 };
 
