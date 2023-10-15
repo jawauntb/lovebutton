@@ -62,34 +62,34 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.3);
+    transform: scale(1.6);
   }
   100% {
-    opacity: 0;
+    opacity: 0.2;
   }
 }
 
 
 @keyframes dancing {
   0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0) scale(0) rotate(0deg);
+    opacity: .3;
+    transform: translate3d(-50%, 100%, 110px) scale(0.5) rotate(0deg);
   }
   25% {
-    opacity: 1;
-    transform: translate3d(50%, -25%, 0) scale(1) rotate(90deg);
+    opacity: .5;
+    transform: translate3d(-150%, 0%, 20px) scale(.76) rotate(90deg);
   }
   50% {
-    opacity: 1;
-    transform: translate3d(500%, 50%, 0) scale(1) rotate(180deg);
+    opacity: .7;
+    transform: translate3d(-175%, 150%, -130px) scale(1.5) rotate(90deg);
   }
   75% {
     opacity: 1;
-    transform: translate3d(-300%, 500%, 0) scale(1) rotate(270deg);
+    transform: translate3d(250%, -300%, 60px) scale(2.5) rotate(90deg);
   }
   100% {
-    opacity: 0;
-    transform: translate3d(-100%, -200%, 0) scale(0) rotate(760deg);
+    opacity: 1.2;
+    transform: translate3d(300%, -600%, 120px) scale(1) rotate(90deg);
   }
 }
 
@@ -108,29 +108,26 @@
 @keyframes falling {
   0% {
     opacity: 0;
-    transform: translate3d(0, -50%, 0) rotate(0deg);
+    transform: translate3d(0%, -10%, 0) rotate(90deg);
   }
   25% {
     opacity: 1;
   }
   50% {
-    transform: translate3d(50%, 50%, 0) rotate(180deg);
+    transform: translate3d(25%, -25%, 0) rotate(10deg);
   }
   75% {
-    transform: translate3d(-50%, 50%, 0) rotate(360deg);
+    transform: translate3d(-50%, -50%, 0) rotate(10deg);
   }
   100% {
     opacity: 0;
-    transform: translate3d(0, 150%, 0) rotate(720deg);
+    transform: translate3d(10%, -150%, 0) rotate(10deg);
   }
 }
 
 .emoji {
   font-size: 48px;
-  outline: none;
-  touch-action: manipulation;
-  user-select: none;
-  cursor: pointer;
+
 }
 
 /* .waterEmoji {
@@ -146,7 +143,7 @@
   touch-action: manipulation;
   user-select: none;
   cursor: pointer;
-  animation:floatAnimation 2s ease-in-out infinite, twinkling 3s ease-in-out infinite, burst 2s ease-in infinite, dancing 10s ease-in-out infinite, falling 2s ease-in-out;
+  animation:floatAnimation 5s ease-in-out infinite, burst 1s ease-in infinite, dancing 8s ease-in-out infinite;
 }
 
 .emojiContainer {
@@ -163,7 +160,7 @@
 .centerWave {
   font-size: 96px;
   position: absolute;
-  animation: floatAnimation 2s ease-in-out infinite;
+  animation: floatAnimation 3s ease-in-out infinite;
   z-index: 1;
 }
 

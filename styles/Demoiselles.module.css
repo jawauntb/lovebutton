@@ -267,7 +267,11 @@
 .releasedEmoji {
   font-size: 1.5rem;
   position: absolute;
-  animation: twinkle 5s ease-in-out infinite, skewY 4s linear infinite, skewX 5s linear infinite, grow 6s ease-in infinite;
+  outline: none;
+  z-index: 2;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  animation: twinkle 5s ease-in-out infinite, grow 3s ease-in-out infinite;
 }
 
 @keyframes grow {
@@ -275,21 +279,29 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(5);
+    transform: scale(4);
   }
 }
 
 .emojiButton {
   font-size: 7rem;
+  position: relative;
   /* padding: 1rem; */
   border: none;
   cursor: pointer;
   animation: floatAnimation 4s linear infinite, twinkle 2s ease-in-out infinite;
   overflow:hidden;
   outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   background-size: 500% 500%;
   background-color: transparent;
-  z-index: 2;
+  z-index: 3;
+  
+}
+
+.emojiButton::-moz-focus-inner {
+  border: 0;
 }
 
 .emojisContainer {

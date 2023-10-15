@@ -5,7 +5,7 @@ import Layout from '../new_components/Layout';  // Import the Layout component
 
 const Wave = () => {
   // Define the button keys for the Wave page
-  const buttonKeys = ["Dems", "Grow", "Index"];  // Add/remove keys as necessary
+  const buttonKeys = ["Rings", "Grow", "Index"];  // Add/remove keys as necessary
 
   return (
     <Layout

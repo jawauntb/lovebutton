@@ -5,7 +5,7 @@ import Layout from '../new_components/Layout';  // Import the Layout component
 
 const Grow = () => {
   // Define the button keys for the Grow page
-  const buttonKeys = ["Dems", "Wave", "Index"];  // Add/remove keys as necessary
+  const buttonKeys = ["Rings", "Wave", "Index"];  // Add/remove keys as necessary
 
   return (
     <Layout

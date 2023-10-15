@@ -6,15 +6,15 @@ import Spinner from './Spinner';
 const Resonance = () => {
   const [input, setInput] = useState('');
   const [rings, setRings] = useState([]);
-  const [size, setSize] = useState(1); 
+  const [size, setSize] = useState(1);
   const [speed, setSpeed] = useState(1);
   const [rotateCircles, setRotateCircles] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const fetchRelatedEmojis = async (input) => {
     try {
       setIsLoading(true);
-      const response = await fetch('https://emojipt.jawaunbrown.repl.co/emojis', {
+      const response = await fetch('https://emojipt-jawaunbrown.replit.app/emojis', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Resonance = () => {
     }
   };
 
-  const ringDisplayMode = rotateCircles? 'circle': 'wave';
+  const ringDisplayMode = rotateCircles ? 'circle' : 'wave';
   const handleInputSubmit = async (e) => {
     e.preventDefault();
     const emojis = await fetchRelatedEmojis(input);
@@ -56,7 +56,7 @@ const Resonance = () => {
   return (
     <div className={styles.componentcontainer}>
       <div className={styles.rings}>
-        {isLoading ? <Spinner /> : 
+        {isLoading ? <Spinner /> :
           rings.map((ring, index) => (
             <RingComponent key={index} emojis={ring.emojis} speed={ring.speed} size={ring.size} displayMode={ringDisplayMode} />
           ))
@@ -73,23 +73,23 @@ const Resonance = () => {
           />
           <button type="submit" className={styles.submit}>+</button>
         </form>
-          {!!rings && rings.length > 0 && 
-            <div>
-              <button onClick={handleRemoveRing} className={styles.button}>
-                -
-              </button>
-              <button onClick={handleClearRings} className={styles.button}>
-                x
-              </button>
-              <button
+        {!!rings && rings.length > 0 &&
+          <div>
+            <button onClick={handleRemoveRing} className={styles.button}>
+              -
+            </button>
+            <button onClick={handleClearRings} className={styles.button}>
+              x
+            </button>
+            <button
               onClick={(e) => setRotateCircles(!rotateCircles)}
               className={styles.button}
             >
               {rotateCircles ? 'Pause' : 'Resonate'}
             </button>
-          </div>}    
+          </div>}
         <label className={styles.labeler}>
-          Size 
+          Size
           <input
             type="range"
             min="0.1"
@@ -102,7 +102,7 @@ const Resonance = () => {
         </label>
 
         <label className={styles.labeler}>
-          Speed 
+          Speed
           <input
             type="range"
             min="1"

@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import styles from '../styles/Press.module.css';
-import emojigram from '../utils/emojigram';
-import hearts from '../utils/hearts';
-import LoveButtonComponent from './LoveButtonComponent';
+import { loveEmojiMap, messages, hearts } from '../utils/emojigram';
 import EmojiContainer from './EmojiContainer';
-import SpecialMessage from './SpecialMessage';
-import messages from '../utils/messages';
 import getSpecialMessage from '../utils/getSpecialMessage';
+import CentralEmojiButton from '../new_components/CentralEmojiButton';
 
 const LoveButton = () => {
   const [showEmojis, setShowEmojis] = useState(false);
@@ -27,20 +24,20 @@ const LoveButton = () => {
   }
 
   const handleHeartClick = () => {
+    setFirstHeart(getRandomHeart());
     setShowEmojis(true);
     setPressed(true);
     setClickCount(clickCount + 1);
     setTimeout(() => {
-      setFirstHeart(getRandomHeart());
       setShowEmojis(false);
       setPressed(false);
-       // Update this line
-    }, 4800);
+      // Update this line
+    }, 10000);
   };
-  
-  const createEmojiResult = (emojigram, chosen) => {
+
+  const createEmojiResult = (loveEmojiMap, chosen) => {
     const result = [];
-    Object.entries(emojigram).forEach(([emoji, number]) => {
+    Object.entries(loveEmojiMap).forEach(([emoji, number]) => {
       const count = chosen ? number : getRandomNumber(6);
       for (let i = 0; i < count; i++) {
         result.push(emoji);
@@ -48,25 +45,25 @@ const LoveButton = () => {
     });
     return result;
   };
-  
+
   const generateEmojis = () => {
     const chosen = Math.random() > 0.5;
-    const result = createEmojiResult(emojigram, chosen);
+    const result = createEmojiResult(loveEmojiMap, chosen);
     const countEmoji = "➕" + clickCount.toString();
     const specialMessage = getSpecialMessage(clickCount, messages);
-  
     return specialMessage ? [specialMessage, countEmoji, ...result] : [countEmoji, ...result];
   };
-  
+
   const emojis = generateEmojis();
-  const first = Math.random()
 
   return (
     <div className={styles.container}>
-      <LoveButtonComponent
+      <CentralEmojiButton
         pressed={pressed}
         handleClick={handleHeartClick}
-        firstHeart={firstHeart}
+        emoji={firstHeart}
+        id="love-button"
+        emojiClass="heart"
       />
       {showEmojis && <EmojiContainer emojis={emojis} />}
     </div>

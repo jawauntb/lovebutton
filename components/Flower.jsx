@@ -1,112 +1,7 @@
 // flower.jsx
 import { useEffect, useState } from 'react';
 import styles from '../styles/Growth.module.css';
-
-const emojis = [
-  '🌱',
-  '🌺',
-  '🌻',
-  '🌹',
-  '🌼',
-  '🌸',
-  '🌷',
-  '🍀',
-  '🌷',
-  '🌸',
-  '🌵',
-  '🪴',
-  '🍀',
-  '🌿',
-  '🍃',
-  '🌱',
-  '🌲',
-  '🌳',
-  '🌴',
-  '🌾',
-  '🌰',
-  '🌻',
-  '🌼',
-  '🍁',
-  '🍂',
-  '🌷',
-  '🐣',
-  '🐥',
-  '🦜',
-  '🦚',
-  '🦢',
-  '🐝',
-  '🦋',
-  '🐛',
-  '🍃',
-  '🌱',
-  '🌲',
-  '🌳',
-  '🌴',
-  '🌾',
-  '💐',
-  '🏵️',
-  '🌺',
-  '🍀',
-  '🌸',
-  '🌴',
-  '🌾',
-  '💐',
-  '🏵️',
-  '🌺',
-  '🍀',
-  '🌸',
-  '🌴',
-  '🌾',
-  '💐',
-  '🏵️',
-  '🌺',
-  '🍀',
-  '🌸',
-  '🌴',
-  '🌾',
-  '💐',
-  '🏵️',
-  '🌺',
-  '🍀',
-  '🌸',
-  '🌹',
-  '🥀',
-  '🌺',
-  '🍀',
-  '🌸',
-  '🌸',
-  '🌷',
-  '🍀',
-  '🌸',
-  '🌷',
-  '🍀',
-  '🌸',
-  '🌷',
-  '🍀',
-  '🌸',
-  '🌷',
-  '🍀',
-  '🌻',
-  '🌼',
-  '🌽',
-  '🍁',
-  '🍂',
-  '🍃',
-  '🌾',
-  '🌿',
-  '🍄',
-  '🌺',
-  '🌻',
-  '🌼',
-  '🍄',
-  '🌺',
-  '🌻',
-  '🌼',
-  '🍄',
-  '🌺',
-  '🌻',
-  '🌼',
-];
+import { plants } from '../utils/emojigram';
 
 const Flower = () => {
   const [emojiIndex, setEmojiIndex] = useState(0);
@@ -114,7 +9,7 @@ const Flower = () => {
   const [clickCount, setClickCount] = useState(0);
 
   const handleClick = () => {
-    setEmojiIndex((emojiIndex + 1) % emojis.length);
+    setEmojiIndex((emojiIndex + 1) % plants.length);
     setAnimationEmojis([]);
     setClickCount(clickCount + 1);
     const countEmoji = "➕" + clickCount.toString();
@@ -123,7 +18,7 @@ const Flower = () => {
     for (let i = 0; i < 200; i++) {
       const x = Math.random() * 100;
       const y = Math.random() * 100;
-      const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const randomEmoji = plants[Math.floor(Math.random() * plants.length)];
 
       newAnimationEmojis.push({ x, y, randomEmoji });
     }
@@ -134,7 +29,7 @@ const Flower = () => {
 
   return (
     <div onClick={handleClick} className={styles.emojiContainer}>
-      <div className={styles.emoji}>{emojis[emojiIndex]}</div>
+      <div className={styles.emoji}>{plants[emojiIndex]}</div>
       {animationEmojis.map(({ x, y, randomEmoji }, index) => (
         <div
           key={index}

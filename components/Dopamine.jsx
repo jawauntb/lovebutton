@@ -1,8 +1,9 @@
 // dopamine.jsx
 import React, { useState, useCallback } from 'react';
 import styles from '../styles/Dope.module.css';
-import handleDopeShareClick from '../utils/handleDopeShareClick';
 import { useRouter } from 'next/router';
+import { explosionEmojis, dopeEmojiButtons } from '../utils/emojigram';
+
 
 const randomAnimation = () => {
   const animations = ['flip', 'sparkle', 'shake'];
@@ -21,10 +22,6 @@ const debounce = (func, wait) => {
 };
 
 const emojis = ['🔥', '💎', '🎇', '🧨', '🍬', '💰', '🍑', '✨'];
-// dopamine.jsx
-const explosionEmojis = [
-  '🌹', '🌺', '🥀', '🏵️', '🔥', '☄️', '❤️‍🔥', '🕯️', '🧨', '🎆', '🎇', '💣', '⛽️', '💡', '🚥', '🩵', '🏮', '😵‍💫', '🔆', '🔅', '⚡️', '⛈️', '🌩️', '💨', '🍃', '🌬️', '🎐', '🕉️', '💖', '🧮', '📯', '🪭', '🎉', '🪅', '🎊', '🎁', '🎈', '🖼️', '🗝️', '🛁', '🚿', '🔮', '🧿', '💎', '🪪', '💶', '💴', '💳', '💷', '💸', '💵', '🔋', '🌋', '⛲️', '🎠', '🗽', '🏖️', '🏝️', '🗺️', '⚓️', '🚀', '🛰️', '✈️', '⛵️', '🚂', '🚨', '🏎️', '🎯', '🎮', '🧩', '🎺', '🎷', '🎻', '🎨', '🎖️', '🥇', '🏆', '🏅', '🎗️', '🎟️', '🎭', '🏄🏾‍♀️', '🏄🏾‍♂️', '🤾🏽‍♂️', '🏌🏽', '🤺', '🥊', '🤿', '🏹', '🏀', '⚽️', '⚾️', '🎱', '🍻', '🍹', '🍾', '🍭', '🍬', '🍦', '🍡', '🍥', '🍑', '❄️', '🎿', '⛷️', '✨', '⚡️', '🪷', '🐲', '🦚', '🪽', '🐬', '👑', '🪡', '💉', '🌆', '🌄', '🌇', '🏞️', '🧠', '🫀', '🫁', '👀', '🫵🏾', '🤟🏾', '🤘🏾', '😻', '🤖', '🤑', '🪙', '🧧', '💲', '💳', '🦾'
-];
 
 const Dopamine = () => {
   const [emoji, setEmoji] = useState('❤️‍🔥');
@@ -44,7 +41,7 @@ const Dopamine = () => {
   const maxExplosionEmojis = 400; // Set a limit for the maximum number of explosion emojis
 
   const handleClick = () => {
-    const newEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    const newEmoji = dopeEmojiButtons[Math.floor(Math.random() * dopeEmojiButtons.length)];
     setEmoji(newEmoji);
 
     const newExplosion = Array.from({ length: 50 }, () => { // Reduce the number of emojis generated on each click
@@ -89,36 +86,6 @@ const Dopamine = () => {
 
   return (
     <div>
-      <div className={styles.buttonContainer}>
-        <button
-          className={`${styles.shareButton} ${styles.growButton}`}
-          onClick={goToGrow}
-          title="Go to Grow"
-        >
-          🪷
-        </button>
-        <button
-          className={`${styles.shareButton} ${styles.waveButton}`}
-          onClick={goToWave}
-          title="Go to Wave"
-        >
-          🌊
-        </button>
-        <button
-          className={`${styles.shareButton} ${styles.heartButton}`}
-          onClick={goToIndex}
-          title="Go to Love"
-        >
-          💖
-        </button>
-        <button
-          className={`${styles.shareButton} ${styles.rocketButton}`}
-          onClick={handleDopeShareClick}
-          title="Share"
-        >
-          🚀
-        </button>
-      </div>
       <button
         className={`${styles.emojiButton} ${buttonAnimation}`}
         onMouseDown={handleMouseDown}
