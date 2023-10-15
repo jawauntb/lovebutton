@@ -167,7 +167,7 @@
 
 .emoji {
   position: relative;
-  animation: emoji-float 4s linear infinite, twinkle 2s ease-in-out infinite;
+  animation: emoji-float 4s linear infinite, twinkle 5s ease-in-out infinite, heartbeat 2s linear infinite;
 }
 
 
