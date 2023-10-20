@@ -8,7 +8,7 @@ const Dope = () => {
 
   return (
     <Layout
-      buttonKeys={[]}  // Empty array as there are no buttons on the Dope page
+      buttonKeys={["Index"]}  // Empty array as there are no buttons on the Dope page
       mainContent={<Dopamine />}
       faviconUrl="/candicon.ico"
       currButton={currButton}
