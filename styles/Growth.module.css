@@ -54,6 +54,7 @@
   user-select: none;
   animation: grow 6s ease-in-out infinite;
 }
+.emoji
 
 @media (max-width: 480px) {
   .emoji {

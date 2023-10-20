@@ -84,6 +84,9 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.emojiButton::-moz-focus-inner {
+  border: 0;
+}
 
 #dopest::-moz-focus-inner {
   border: 0;
@@ -100,6 +103,9 @@
   pointer-events: none; /* add this line to prevent cursor interaction with emojis */
 }
 
+.emoji::-moz-focus-inner {
+  border: 0;
+}
 
 @keyframes emojiAnimation {
   /* Customize this keyframe animation for the desired effects */

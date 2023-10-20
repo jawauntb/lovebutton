@@ -4,25 +4,28 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import handleShareClick from '../utils/handleShareClick';
 import styles from '../styles/Press.module.css';
-import { ButtonConfig, generateButtons } from './ButtonMap';
+import { buttonConfigs, generateButtons } from './ButtonMap';
 
 interface LayoutProps {
   buttonKeys: string[];  // Use keys instead of full button configs
   mainContent: React.ReactNode;
   faviconUrl: string;
+  currButton: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ buttonKeys, mainContent, faviconUrl }) => {
+const Layout: React.FC<LayoutProps> = ({ buttonKeys, mainContent, faviconUrl, currButton }) => {
   const router = useRouter();
   const buttonsToRender = generateButtons(buttonKeys);  // Get button configs based on keys
+  const selectedButton = buttonConfigs[currButton];
+  const selectedContainer = selectedButton.container ? styles[`${selectedButton.container}`] : styles.container
 
   return (
-    <div className={styles.container}>
+    <div className={selectedContainer}>
       <div className={styles.buttonsContainer}>
         {buttonsToRender.map((button, index) => (
           <button
             key={index}
-            className={`${styles.shareButton} ${button.className}`}
+            className={`${styles.shareButton}`}
             onClick={() => router.push(button.route)}
             title={button.title}
           >

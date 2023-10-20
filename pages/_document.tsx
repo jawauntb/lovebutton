@@ -6,6 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           {/* Add any required meta tags */}
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta charSet="UTF-8" />
         </Head>
         <body style={{ "margin": 0 }}>

@@ -32,13 +32,13 @@ const LoveButton = () => {
       setShowEmojis(false);
       setPressed(false);
       // Update this line
-    }, 10000);
+    }, 20000);
   };
 
   const createEmojiResult = (loveEmojiMap, chosen) => {
     const result = [];
     Object.entries(loveEmojiMap).forEach(([emoji, number]) => {
-      const count = chosen ? number : getRandomNumber(6);
+      const count = chosen ? number : getRandomNumber(30);
       for (let i = 0; i < count; i++) {
         result.push(emoji);
       }
