@@ -29,22 +29,38 @@ const LoveButton = () => {
     setPressed(true);
     setClickCount(clickCount + 1);
     setTimeout(() => {
-      setShowEmojis(false);
       setPressed(false);
       // Update this line
-    }, 20000);
+    }, 1000);
+    setTimeout(() => {
+      setShowEmojis(false);
+    }, 20000)
   };
 
+  // const createEmojiResult = (loveEmojiMap, chosen) => {
+  //   const result = [];
+  //   Object.entries(loveEmojiMap).forEach(([emoji, number]) => {
+  //     const count = (chosen ? number : getRandomNumber(15)) + (getRandomNumber(clickCount) / 3);
+  //     for (let i = 0; i < count; i++) {
+  //       result.push(emoji);
+  //     }
+  //   });
+  //   return result;
+  // };
+
   const createEmojiResult = (loveEmojiMap, chosen) => {
+    const randomClickCount = getRandomNumber(clickCount) / 100;
     const result = [];
+
     Object.entries(loveEmojiMap).forEach(([emoji, number]) => {
-      const count = chosen ? number : getRandomNumber(30);
-      for (let i = 0; i < count; i++) {
-        result.push(emoji);
-      }
+      const count = (chosen ? number : getRandomNumber(15)) + randomClickCount;
+      result.push(...Array(Math.floor(count)).fill(emoji));
     });
+    setTimeout(() => {
+    }, 100)
     return result;
   };
+
 
   const generateEmojis = () => {
     const chosen = Math.random() > 0.5;
