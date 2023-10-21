@@ -147,6 +147,7 @@
   overflow: hidden;
 }
 
+
 .growcontainer{
   display: flex;
   box-sizing: content-box;
@@ -156,27 +157,76 @@
   height: 100vh; /* add height property */
   width: 100%;
   background-image: radial-gradient(
-    #e9d8fd, /* light purple */
-    #fbc2eb, /* light pink */
-    #ffffff, /* white */
-    #f7efcf, /* flower yellow */
-    #98df8a, /* spring green */
-    #40e0d0, /* turquoise */
-    #808000,  /* olive */
-    #228b22, /* forest green */
-    #f7dc6f, /* flower yellow */
-    #f5f5dc, /* beige */
-    #9feb2d, /* beige */
-    #ffa500, /* orange */
-    #ff69b4, /* hot pink */
-    #ff6347 /* tomato */
+      #ffffff, /* white */
+      #f5f5dc, /* beige */
+      #f7efcf, /* flower yellow */
+      #f7dc6f, /* flower yellow */
+      #e9d8fd, /* light purple */
+      #fbc2eb, /* light pink */
+      #98df8a, /* spring green */
+      #9feb2d, /* beige (this doesn't seem like a beige color, more like a light green) */
+      #40e0d0, /* turquoise */
+      #ffa500, /* orange */
+      #ff69b4, /* hot pink */
+      #ff6347, /* tomato */
+      #228b22, /* forest green */
+      #808000  /* olive */
   );
+
   background-size: 400% 100%;
-  animation: gradient 3s ease infinite;
+  animation: zoomInOut 5s linear infinite;
+  /* background-repeat: no-repeat; */
   overflow: hidden;
   overflow: hidden;
   margin: 0!important;
 }
+
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1);
+    background-size: 100% 100%;
+  }
+  50% {
+    transform: scale(2);
+    background-size: contain;
+  }
+}
+
+
+@keyframes rippleScale {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 1.5;
+  }
+}
+
+
+@keyframes rippleSize {
+  0% {
+    background-size: 100% 100%;
+  }
+  100% {
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes ripplePosition {
+  0% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 150% 150%;
+  }
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
+
 
 @keyframes gradientMove {
     0% {
