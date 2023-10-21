@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ buttonKeys, mainContent, faviconUrl, cu
   const selectedContainer = selectedButton.container ? styles[`${selectedButton.container}`] : styles.container
 
   return (
-    <div className={selectedContainer}>
+    <div>
       <div className={styles.buttonsContainer}>
         {buttonsToRender.map((button, index) => (
           <button
@@ -43,7 +43,9 @@ const Layout: React.FC<LayoutProps> = ({ buttonKeys, mainContent, faviconUrl, cu
       <Head>
         <link rel="shortcut icon" href={faviconUrl} />
       </Head>
-      {mainContent}
+      <div className={selectedContainer}>
+        {mainContent}
+      </div>
     </div>
   );
 };
