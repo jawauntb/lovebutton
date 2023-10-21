@@ -42,6 +42,20 @@
   }
 }
 
+.centralEmoji {
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  outline: none;
+  touch-action: manipulation;
+  user-select: none;
+  animation: grow 6s ease-in-out infinite;
+  filter: drop-shadow(5px 5px grey);
+}
+
 .emoji {
   font-size: 3rem;
   cursor: pointer;
@@ -54,7 +68,11 @@
   user-select: none;
   animation: grow 6s ease-in-out infinite;
 }
-.emoji
+
+.emoji::-moz-focus-inner {
+  border: 0;
+}
+
 
 @media (max-width: 480px) {
   .emoji {

@@ -162,10 +162,11 @@
   position: absolute;
   animation: floatAnimation 3s ease-in-out infinite;
   z-index: 1;
+  filter: drop-shadow(5px 5px grey);
 }
 
 .centerWave:hover {
-  transform: scale(1.05);
+  transform: scale(2)
 }
 
 .centerWave:active {

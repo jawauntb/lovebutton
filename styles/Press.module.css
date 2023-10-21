@@ -307,6 +307,7 @@
   position: relative;
   top: 10%; /* add this line to center the heart */
   transform: translateY(-50%); /* add this line to center the heart */
+  filter: drop-shadow(5px 5px);
 }
 
 @keyframes floatAnimation {
@@ -336,10 +337,11 @@
   touch-action: manipulation;
   user-select: none;
   cursor: pointer;
+  filter: drop-shadow(5px 5px #2e4c5c);
 }
 
 .centerWave:hover {
-  transform: scale(1.05);
+  transform: scale(2)
 }
 
 .centerWave:active {

@@ -301,6 +301,7 @@
   background-size: 500% 500%;
   background-color: transparent;
   z-index: 3;
+  filter: drop-shadow(5px 5px);
   
 }
 

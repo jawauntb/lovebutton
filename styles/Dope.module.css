@@ -82,6 +82,7 @@
   transition: transform 0.3s;
   animation: grow 15s ease-in-out infinite;
   -webkit-tap-highlight-color: transparent;
+  filter: drop-shadow(5px 5px);
 }
 
 .emojiButton::-moz-focus-inner {

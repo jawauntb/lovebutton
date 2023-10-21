@@ -29,7 +29,7 @@ const Flower = () => {
 
   return (
     <div onClick={handleClick} className={styles.emojiContainer}>
-      <div className={styles.emoji}>{plants[emojiIndex]}</div>
+      <div className={styles.centralEmoji}>{plants[emojiIndex]}</div>
       {animationEmojis.map(({ x, y, randomEmoji }, index) => (
         <div
           key={index}
