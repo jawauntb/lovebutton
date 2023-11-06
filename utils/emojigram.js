@@ -295,3 +295,57 @@ export const paintingEmojis = [
 ];
 
 export const demoisellesEmojiButtons = ["👹", "🍋", "🍏", "👱🏼‍♀️", "🍇🍉🍋", "🍇", "🍉", "🍊", "🍇🍎🍋", "👹", "💃🏽", "👱🏽‍♀️", "🙆🏽‍♀️", "💁🏾‍♀️", "🍇🍉🍊", "🤰🏻", "🧟‍♀️", "🚶🏽‍♀️", "🗿", "👩‍👩‍👧"];
+
+export const flyEmojiMap = [
+  "🪰", // Fly
+  "🥰",
+  "🦋",
+  "🎞️",
+  "🎬",
+  "🍿",
+  "🎥",
+  "🪁",
+  "✈️",
+  "🌆",
+  "🏙️",
+  "🏢",
+  "🌻", // Sunflower (where flies may land)
+  "🌱", // Seedling (flies can be found in gardens)
+  "🍂", // Fallen leaf (potential fly habitat)
+  "🌾", // Sheaf of rice (flies are found in fields)
+  "🏠", // House (flies entering homes)
+  "🪴", // Potted plant (flies are found around house plants)
+  "🔍", // Magnifying glass (used to look at small insects like flies)
+  "💡", // Light bulb (flies are attracted to light)
+  "🌬️", // Wind face (wind can affect fly movements)
+  "🏡", // House with garden (common place for flies)
+  "🌼", // Blossom (flowers attract flies)
+  "🌞", // Sun (flies are more active in sunlight)
+  "🌪️", // Tornado (symbolizing the chaos flies can cause)
+  "🐞", // Ladybug (another insect found where flies are)
+  "🐛", // Bug (general insects, including flies)
+  "🌸", // Flower (attracting flies)
+  "🧪", // Test tube (studying flies in a lab)
+  "🔬", // Microscope (used to examine flies)
+
+];
+
+export const flyButtons = ["🪰", "🐞", "🪰❤️🪰"]
+
+export const flyMessages = [
+  { limit: 0, interval: 10, message: "🪰 TIME FLIES! ⏰✨🪰" },
+  { limit: 50, interval: 20, message: "Like a fly on the wall, I've seen it all! 🪰👀" },
+  { limit: 20, interval: 100, message: "Remember, you can never trust a ladybug 🐞❌" },
+  { limit: 100, interval: 75, message: "🪰 Buzzing through the day, fly-style! 🌞" },
+  { limit: 50, interval: 60, message: "Fly high, but always watch where you land! 🪰👀" },
+  { limit: 40, interval: 500, message: "You catch more flies with honey than vinegar! 🍯>🍇" },
+  { limit: 20, interval: 150, message: "🪰 A fly may also love 💖" },
+  { limit: 10, interval: 250, message: "Even a fly can travel a thousand miles! 🪰✈️🌍" },
+  { limit: 50, interval: 130, message: "If you want to live like a fly, you have to move fast! 🪰💨" },
+  { limit: 30, interval: 125, message: "One fly makes a summer! 🪰☀️" },
+  { limit: 0, interval: 100, message: "Flies gather on a blooming flower! 🪰🌸" },
+  { limit: 0, interval: 75, message: "The fly that doesn’t want to be swatted is most aware of the swatter! 🪰👋" },
+  { limit: 0, interval: 20, message: "Even a lion must defend himself against the flies! 🪰🦁" },
+  { limit: 360, interval: 36, message: "Fly by night, away from here! 🪰🌙✈️" },
+  { limit: 20, interval: 50, message: "Be a gadfly AND the guide! 🪰🌟" },
+];

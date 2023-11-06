@@ -51,6 +51,13 @@ export const buttonConfigs: { [key: string]: ButtonConfig } = {
     className: styles.dopeButton,
     container: 'dopecontainer'
   },
+  "Fly": {
+    route: "/fly",
+    title: "Make Time Fly",
+    content: "🪰",
+    className: styles.flyButton,
+    container: 'flycontainer'
+  },
   // ... add more buttons as needed
 };
 

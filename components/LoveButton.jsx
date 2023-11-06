@@ -81,7 +81,7 @@ const LoveButton = () => {
         id="love-button"
         emojiClass="heart"
       />
-      {showEmojis && <EmojiContainer emojis={emojis} />}
+      {showEmojis && <EmojiContainer emojis={emojis} style={'emoji'} />}
     </div>
   );
 };
