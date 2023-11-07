@@ -534,10 +534,25 @@
   }
 }
 
+@keyframes zigzag {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(125px, -55px);
+    }
+    50% {
+        transform: translate(150px, 0);
+    }
+    75% {
+        transform: translate(175px, -75px);
+    }
+}
+
 .fly-emoji {
   display: inline-block;
   position: relative;
-  animation: spin360 3s linear, bounce 1s infinite, dancing 3s infinite, shake .05s 100 ease-in-out;
+  animation: bounce 1s infinite, zigzag 3s linear infinite, shake .05s 100 ease-in-out, dancing 4s linear, spin360 3s linear;
   will-change: transform;
   top: -20px;
   left: -20px;
@@ -551,6 +566,8 @@
 .emoji::-moz-focus-inner {
   border: 0;
 }
+
+
 
 @keyframes emoji-float {
   0% {
