@@ -58,6 +58,13 @@ export const buttonConfigs: { [key: string]: ButtonConfig } = {
     className: styles.flyButton,
     container: 'flycontainer'
   },
+  "Creator": {
+    route: "/create",
+    title: "Create Your Own Button",
+    content: "🎨",
+    className: styles.createButton,
+    container: 'creatorcontainer'
+  },
   // ... add more buttons as needed
 };
 

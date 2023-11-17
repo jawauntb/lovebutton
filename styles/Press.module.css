@@ -202,10 +202,10 @@
               radial-gradient(closest-side at 70% 90%, #009de0, transparent 50%),
     linear-gradient(to top, #00b324 20%, transparent 70%),
               #8affe8; /* Fallback solid color */
-  background-blend-mode: color;
+  background-blend-mode: blend;
   z-index: 1;
   position: relative;
-  background-size: 400% 100%;
+  background-size: 400% 400%;
   animation: ripplePosition 5s linear infinite;
   overflow: hidden;
   margin: 0!important;
@@ -375,6 +375,22 @@
     transform: translateY(-50%); /* add this line to center the heart */
     filter: drop-shadow(5px 5px);
   }
+
+.creator-input[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px !important;
+  font-size: 75px;
+  position: relative;
+  top: 10%; /* add this line to center the heart */
+  transform: translateY(-50%); /* add this line to center the heart */
+  filter: drop-shadow(5px 5px);
+}
+
+.creator-input[type=text]:focus {
+   outline: none;
+}
+
 
 .heart {
   font-size: 96px;

@@ -41,7 +41,10 @@ const Layout: React.FC<LayoutProps> = ({ buttonKeys, mainContent, faviconUrl, cu
         </button>
       </div>
       <Head>
+        <meta property="og:image" content="love.png" />
+        <link rel="icon" href="love.png" />
         <link rel="shortcut icon" href={faviconUrl} />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
       </Head>
       <div className={selectedContainer}>
         {mainContent}
